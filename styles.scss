@@ -1,0 +1,104 @@
+$color-bg: #000;
+$color-title: rgba(200, 200, 200, 1.0);
+$color-default: rgba(255, 255, 255, 1.0);
+$font-default: 'Orbitron', sans-serif;
+$typography-size: calc(2vw + .75em);
+$typography-margin: 0 .9375rem .9375rem 0;
+
+:root {
+  background-color: $color-bg;
+  font-family: $font-default;     
+  min-width: 21.25em;
+}
+
+a,
+a:visited,
+a:hover {
+  color: $color-default;
+  text-decoration: none;
+  opacity: .5;
+  transition: opacity .4s;
+}
+
+a:hover {
+  opacity: 1;  
+}
+
+.city {
+  min-width: 320px;
+  width: 100%;
+  opacity: 0;
+  #face,
+  #characters {
+    display: none;
+  }
+  #blimp {
+    cursor: pointer;
+  }
+}
+
+.footer {  
+  margin: $typography-margin;
+  position: relative;
+  
+  .title {
+    color: $color-title;        
+    display: inline-block;    
+    font-size: $typography-size;    
+    opacity: 0;        
+    text-shadow: 0 0 0 $color-title;    
+    
+    @media screen and (min-width: 46.25em) {
+      & {
+        animation: pulsate 14s linear infinite;
+      }
+    }
+  }    
+  
+  @keyframes pulsate {
+    50% {
+      color: transparent;
+      text-shadow: 0 0 4px $color-title;
+    }
+  }    
+}
+
+.scanlines {
+  overflow: hidden;
+  position: relative;
+  
+  &:before,
+  &:after {
+    content: '';
+    display: block;
+    pointer-events: none;
+    position: absolute;
+  }
+  
+  &:before {
+    animation: scanline 8s linear infinite;
+    background: rgba(0, 0, 0, 0.3);
+    height: 4px;
+    opacity: 0.65;
+    width: 100%;
+    z-index: 2147483649;    
+  }
+  
+  &:after {
+    background: -webkit-linear-gradient(top, transparent 50%, rgba(0, 0, 0, 0.3) 51%);
+    background: linear-gradient(to bottom, transparent 50%, rgba(0, 0, 0, 0.3) 51%);
+    background-size: 100% 3px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 0;      
+    z-index: 2147483648;    
+  }
+  
+  @keyframes scanline {
+    50% {
+      background-position: 0 50%;
+      transform: translate3d(0, 100000%, 0);    
+    }
+  }
+}

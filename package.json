@@ -1,0 +1,11 @@
+{
+  "name": "scifi-animated-svg",
+  "version": "1.0.0",
+  "description": "An animated sci-fi SVG scene demo using GreenSock heavily inspired by Blade Runner.",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Eric J Nesser",
+  "license": "MIT"
+}
